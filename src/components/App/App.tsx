@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import React, { lazy, Suspense } from 'react';
 // import cl from 'clsx';
 // import Skeleton from 'react-loading-skeleton';
@@ -14,6 +14,11 @@ const App = () => {
   const handleSettingsButtonClick = () => {
     setIsSettingsShow((isSettingsShow) => !isSettingsShow);
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(`main.js`);
+  }, []);
 
   return (
     <section>
