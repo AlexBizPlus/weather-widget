@@ -1,8 +1,8 @@
 {
-  "name": "fuse8-test-task",
+  "name": "weather-widget-test-task",
   "version": "1.0.0",
   "description": "Test task",
-  "main": "index.tsx",
+  "main": "index.ts",
   "author": "Alexey Nezhnov",
   "license": "MIT",
   "private": true,
