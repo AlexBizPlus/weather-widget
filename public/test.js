@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
+function test() {
+  document.getElementById('root').innerHTML = '<p>Test</p>';
+}
 
-(function test() {
-  console.log('Test');
-})();
+test();
