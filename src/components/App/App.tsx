@@ -5,9 +5,9 @@ import Settings from '../Settings/Settings';
 import SettingsIcon from '../../img/icon-settings.svg';
 import CloseIcon from '../../img/icon-close.svg';
 import { setCities } from '../../store/actions/cities-actions';
-import s from './App.module.scss';
 import { WEATHER_CITY_NAMES, CITIES_BY_DEFAULT } from '../../const';
 import { RootState } from '../../store/reducers/root-reducer';
+import s from './App.module.scss';
 
 const App = () => {
   const dispatch = useDispatch();
