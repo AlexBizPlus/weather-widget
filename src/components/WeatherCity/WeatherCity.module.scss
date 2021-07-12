@@ -1,76 +1,66 @@
 @import '../../scss/mixins';
 
-.card {
-  @include flex-column(flex-start, flex-start);
-  padding-bottom: 17px;
-  background-color: $background;
-  border: 1px solid $border;
-  outline: none;
-
-  &:active,
-  &:focus,
-  &:hover {
-    border-color: $black;
-  }
+.root {
+  @include font-12-14-400;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'name name'
+    'img temp'
+    'text text'
+    'wind pressure'
+    'humidity dewPoint'
+    'visibility none';
+  row-gap: 10px;
+  column-gap: 10px;
+  width: 100%;
 }
 
-.title {
-  margin-top: 20px;
-  margin-bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
-  color: $text;
-}
-
-.text {
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 16px;
-  line-height: 22px;
-  color: $text;
-
-  &__price {
-    margin-top: 15px;
-    margin-bottom: 7px;
-  }
-
-  &__small {
-    font-size: 14px;
-    line-height: 19px;
-  }
-
-  &__bold {
-    font-weight: 700;
-  }
+.name {
+  font-weight: 600;
+  grid-area: name;
+  margin-bottom: 20px;
+  padding-right: 50px;
 }
 
 .img {
-  position: relative;
-  order: -1;
+  grid-area: img;
+  margin: 0 auto;
+  transform: rotate(var(--degree));
 }
 
-.type {
-  @include flex-row(center, center);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 30px;
-  padding-left: 8px;
-  padding-right: 8px;
-  color: $white;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
-  transform: translateY(-4px);
+.temp {
+  @include font-30-34-600;
+  grid-area: temp;
+}
 
-  &__sea {
-    background-color: $sea;
-  }
+.wind,
+.pressure {
+  @include flex-row(flex-start, center);
+  column-gap: 10px;
+}
 
-  &__orange {
-    background-color: $orange;
-  }
+.wind {
+  grid-area: wind;
+}
+
+.text {
+  grid-area: text;
+  margin-top: 20px;
+}
+
+.pressure {
+  grid-area: pressure;
+}
+
+.humidity {
+  grid-area: humidity;
+}
+
+.dewPoint {
+  grid-area: dewPoint;
+}
+
+.visibility {
+  grid-area: visibility;
 }

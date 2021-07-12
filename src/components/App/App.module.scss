@@ -1,7 +1,19 @@
 @import '../../scss/mixins';
 
-.skeleton {
-  @include flex-row(center, center);
-  width: 100vw;
-  height: 100vh;
+.section {
+  @include flex-column(center, center);
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.settings {
+  @include button-reset;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.text {
+  @include font-12-14-600;
 }

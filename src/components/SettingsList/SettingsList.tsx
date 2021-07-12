@@ -1,23 +1,37 @@
-// import React, { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ReactSortable } from 'react-sortablejs';
+import { setCities } from '../../store/actions/cities-actions';
+import { RootState } from '../../store/reducers/root-reducer';
 import SettingsItem from '../SettingsItem/SettingsItem';
-// import cl from 'clsx';
-// import Skeleton from 'react-loading-skeleton';
-// import { Link } from 'react-router-dom';
-// import s from './SettingsList.module.scss';
-// import { IHome, ImgSize, Routes } from '../../const';
-// import { createAPI } from '../../api/api';
-// import { splitPrice } from '../../utils';
-// import { BACKEND_URL_IMG } from '../../api/const';
+import s from './SettingsList.module.scss';
+import { ICityList } from '../../types';
+import { WEATHER_CITY_NAMES } from '../../const';
 
-// interface ICard {
-//   props: IHome;
-// }
+const SettingsList = () => {
+  const dispatch = useDispatch();
+  const cityList = useSelector((state: RootState) => state.CITIES.cities);
+  const [state, setState] = useState<ICityList[]>(cityList);
 
-// const Settings = ({ props }: ICard) => {
-const SettingsList = () => (
-  // const { id, title, address, type, price } = props;
+  useEffect(() => {
+    setState(cityList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cityList.length]);
 
-  <SettingsItem />
-);
+  useEffect(() => {
+    dispatch(setCities(state));
+    localStorage.setItem(WEATHER_CITY_NAMES, JSON.stringify(state));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
+
+  return (
+    <ReactSortable tag="ul" className={s.list} list={state} setList={setState}>
+      {state.map((item) => (
+        <li key={item.name}>
+          <SettingsItem cityName={item.name} />
+        </li>
+      ))}
+    </ReactSortable>
+  );
+};
 export default SettingsList;

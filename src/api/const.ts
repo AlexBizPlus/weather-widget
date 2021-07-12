@@ -1,7 +1,4 @@
-export const BACKEND_URL = 'https://603e38c548171b0017b2ecf7.mockapi.io';
-export const BACKEND_URL_IMG = 'https://picsum.photos';
-export const REQUEST_TIMEOUT = 5000;
-
-export const APIRoute = {
-  HOMES: `/homes`,
-};
+export const BACKEND_URL = 'https://api.openweathermap.org/data/2.5/weather';
+export const BACKEND_IMG_URL = 'https://openweathermap.org/img/w/';
+export const API_KEY = process.env.API_KEY_OPEN_WEATHER;
+export const CODE_OK = 200;

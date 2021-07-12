@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.223" height="13.438">
+  <defs/>
+  <g transform="matrix(.15807 0 0 .14064 -38.783 -28.428)">
+    <path d="M284.913 215.904h3.185v67.61h-3.185z"/>
+    <path d="M280.482 282.213h12.048v3.088h-12.048z"/>
+    <ellipse cx="286.368" cy="249.871" rx="5.609" ry="6.338"/>
+  </g>
+  <ellipse cx="6.508" cy="6.72" fill="none" stroke="#000" stroke-width=".429" rx="6.396" ry="6.505" transform="skewX(.883) scale(1 .99988)"/>
+</svg>

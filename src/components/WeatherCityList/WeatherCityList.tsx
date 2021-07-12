@@ -1,30 +1,24 @@
 import React from 'react';
-// import cl from 'clsx';
-// import Skeleton from 'react-loading-skeleton';
-// import s from './WeatherCityList.module.scss';
-// import { } from '../../const';
+import cl from 'clsx';
+import { useSelector } from 'react-redux';
+import { ICityList, IWeatherCityList } from '../../types';
+import s from './WeatherCityList.module.scss';
 import WeatherCity from '../WeatherCity/WeatherCity';
+import { RootState } from '../../store/reducers/root-reducer';
 
-// interface ICardList {
-//   cardList: IHome[];
-//   className?: string;
-// }
+const WeatherCityList = ({ className }: IWeatherCityList) => {
+  const cityList = useSelector((state: RootState) => state.CITIES.cities);
 
-// const WeatherCityList = ({ cardList, className }: ICardList) => (
-const WeatherCityList = () => (
-  /*
-  <ul className={cl(s.list, className)}>
-    {cardList.length > 0
-      ? cardList.map((card) => (
-          <li className={cl(s.card)} key={card.id}>
-            <WeatherCity props={card} />
+  return (
+    <ul className={cl(s.list, className)}>
+      {cityList.length > 0 &&
+        cityList.map((item: ICityList) => (
+          <li key={item.name}>
+            <WeatherCity cityName={item.name} />
           </li>
-        ))
-      : <Skeleton  />
-      }
-  </ul>
-  */
-  <WeatherCity />
-);
+        ))}
+    </ul>
+  );
+};
 
 export default WeatherCityList;

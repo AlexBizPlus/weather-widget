@@ -1,4 +1,5 @@
 @import './mixins';
+@import './variables';
 
 html,
 body {
@@ -33,7 +34,8 @@ body {
   @include base-font();
 }
 
-#root {
+weather-widget {
   @include flex-column(flex-start, center);
-  width: 100%;
+  width: $width;
+  border: 1px solid $border;
 }

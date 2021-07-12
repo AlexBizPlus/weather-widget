@@ -1,32 +1,44 @@
 import React, { useState, useEffect } from 'react';
-// import React, { lazy, Suspense } from 'react';
-// import cl from 'clsx';
-// import Skeleton from 'react-loading-skeleton';
-// import s from './App.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
 import WeatherCityList from '../WeatherCityList/WeatherCityList';
 import Settings from '../Settings/Settings';
-
-// const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+import SettingsIcon from '../../img/icon-settings.svg';
+import CloseIcon from '../../img/icon-close.svg';
+import { setCities } from '../../store/actions/cities-actions';
+import s from './App.module.scss';
+import { WEATHER_CITY_NAMES, CITIES_BY_DEFAULT } from '../../const';
+import { RootState } from '../../store/reducers/root-reducer';
 
 const App = () => {
+  const dispatch = useDispatch();
   const [isSettingsShow, setIsSettingsShow] = useState(false);
+  const cityList = useSelector((state: RootState) => state.CITIES.cities);
 
   const handleSettingsButtonClick = () => {
     setIsSettingsShow((isSettingsShow) => !isSettingsShow);
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(`main.js`);
+    if (localStorage.getItem(WEATHER_CITY_NAMES)) {
+      dispatch(setCities(JSON.parse(localStorage.getItem(WEATHER_CITY_NAMES) || JSON.stringify(CITIES_BY_DEFAULT))));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section>
+    <section className={s.section}>
       {!isSettingsShow && <WeatherCityList />}
-      <button type="button" onClick={handleSettingsButtonClick}>
-        Settings
+      <button className={s.settings} type="button" onClick={handleSettingsButtonClick} aria-label="Settings">
+        <img
+          className={s.img}
+          src={isSettingsShow ? CloseIcon : SettingsIcon}
+          width={17}
+          height={17}
+          alt="weather icon"
+        />
       </button>
       {isSettingsShow && <Settings />}
+      {!isSettingsShow && cityList.length === 0 && <div className={s.text}>Add location using Settings</div>}
     </section>
   );
 };

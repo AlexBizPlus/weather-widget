@@ -1,0 +1,25 @@
+@import '../../scss/mixins';
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  column-gap: 5px;
+  align-items: end;
+  width: 100%;
+}
+
+.label {
+  @include flex-column(flex-start, stretch);
+  row-gap: 10px;
+  width: 100%;
+}
+
+.title {
+  @include font-12-14-600;
+  margin-right: auto;
+}
+
+.button {
+  @include button-reset;
+  padding: 0;
+}

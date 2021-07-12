@@ -1,23 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import SettingsList from '../SettingsList/SettingsList';
-// import React, { useEffect, useState } from 'react';
-// import cl from 'clsx';
-// import Skeleton from 'react-loading-skeleton';
-// import { Link } from 'react-router-dom';
-// import s from './Settings.module.scss';
-// import { IHome, ImgSize, Routes } from '../../const';
-// import { createAPI } from '../../api/api';
-// import { splitPrice } from '../../utils';
-// import { BACKEND_URL_IMG } from '../../api/const';
+import SettingsInput from '../SettingsInput/SettingsInput';
+import { RootState } from '../../store/reducers/root-reducer';
+import s from './Settings.module.scss';
+import { MAX_CITIES } from '../../const';
 
-// interface ICard {
-//   props: IHome;
-// }
+const Settings = () => {
+  const cityList = useSelector((state: RootState) => state.CITIES.cities);
 
-// const Settings = ({ props }: ICard) => {
-const Settings = () => (
-  // const { id, title, address, type, price } = props;
+  return (
+    <div className={s.settings}>
+      <span className={s.title}>Settings</span>
+      <SettingsList />
+      {cityList.length < MAX_CITIES && <SettingsInput />}
+    </div>
+  );
+};
 
-  <SettingsList />
-);
 export default Settings;

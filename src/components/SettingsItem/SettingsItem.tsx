@@ -1,22 +1,28 @@
 import React from 'react';
-// import React, { useEffect, useState } from 'react';
-// import cl from 'clsx';
-// import Skeleton from 'react-loading-skeleton';
-// import { Link } from 'react-router-dom';
-// import s from './SettingsList.module.scss';
-// import { IHome, ImgSize, Routes } from '../../const';
-// import { createAPI } from '../../api/api';
-// import { splitPrice } from '../../utils';
-// import { BACKEND_URL_IMG } from '../../api/const';
+import { useDispatch } from 'react-redux';
+import { ISettingsItem } from '../../types';
+import { setRemoveCities } from '../../store/actions/cities-actions';
+import MenuIcon from '../../img/icon-menu.svg';
+import DeleteIcon from '../../img/icon-delete.svg';
+import s from './SettingsItem.module.scss';
 
-// interface ICard {
-//   props: IHome;
-// }
+const SettingsItem = ({ cityName }: ISettingsItem) => {
+  const dispatch = useDispatch();
 
-// const Settings = ({ props }: ICard) => {
-const SettingsItem = () => (
-  // const { id, title, address, type, price } = props;
+  const handleRemoveButtonClick = () => {
+    dispatch(setRemoveCities(cityName));
+  };
 
-  <div>SettingsItem</div>
-);
+  return (
+    <div className={s.item} id={cityName}>
+      <button className={s.button} type="button" aria-label="change order">
+        <img className={s.img} src={MenuIcon} width={12} height={12} alt="weather icon" />
+      </button>
+      {cityName}
+      <button className={s.button} type="button" onClick={handleRemoveButtonClick} aria-label="remove city">
+        <img className={s.img} src={DeleteIcon} width={13} height={16} alt="weather icon" />
+      </button>
+    </div>
+  );
+};
 export default SettingsItem;

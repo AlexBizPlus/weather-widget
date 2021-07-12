@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="7.403" height="12.387">
+  <defs/>
+  <g fill="none" stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined">
+    <path stroke-width="1.5" d="M280.5 60.85l75 249" transform="matrix(.0489 0 0 .04958 -10.018 -3.006)"/>
+    <path stroke-width="1.421" d="M281.5 256.85l74 53" transform="matrix(.0489 0 0 .04958 -10.018 -3.006)"/>
+  </g>
+  <g fill="none" stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined">
+    <path stroke-width="1.5" d="M282.609 62.219l75 249" transform="matrix(-.0489 0 0 .04958 17.524 -3.074)"/>
+    <path stroke-width="1.44" d="M281.609 258.22l76 52.999" transform="matrix(-.0489 0 0 .04958 17.524 -3.074)"/>
+  </g>
+  <path d="M.133 12.194c.007-.02.809-2.72 1.783-6A745.36 745.36 0 013.7.231c.007 0 .81 2.683 1.784 5.963.974 3.28 1.775 5.98 1.782 5.998.006.019-.779-.54-1.745-1.24-1.002-.728-1.77-1.269-1.79-1.26-.019.007-.806.558-1.75 1.224L.194 12.18c-.05.036-.07.04-.061.015z"/>
+</svg>
