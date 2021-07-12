@@ -23,11 +23,11 @@ const WeatherCity = ({ cityName, className }: IWeatherCity) => {
   const { loading, error, data }: IUseData = useData(cityName);
 
   useEffect(() => {
-    if (error || data?.cod !== CODE_OK) {
+    if (!loading && (error || data?.cod !== CODE_OK)) {
       dispatch(setRemoveCities(cityName));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [error, data]);
+  }, [error, data, loading]);
 
   if (loading || !data) return <Skeleton width={248} height={208} />;
 

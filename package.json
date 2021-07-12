@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "build:prod": "node ./scripts/create-env.js && webpack --mode production",
     "start": "webpack serve --mode development"
   },
   "dependencies": {

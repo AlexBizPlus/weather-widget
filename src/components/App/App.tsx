@@ -29,13 +29,7 @@ const App = () => {
     <section className={s.section}>
       {!isSettingsShow && <WeatherCityList />}
       <button className={s.settings} type="button" onClick={handleSettingsButtonClick} aria-label="Settings">
-        <img
-          className={s.img}
-          src={isSettingsShow ? CloseIcon : SettingsIcon}
-          width={17}
-          height={17}
-          alt="weather icon"
-        />
+        <img src={isSettingsShow ? CloseIcon : SettingsIcon} width={17} height={17} alt="weather icon" />
       </button>
       {isSettingsShow && <Settings />}
       {!isSettingsShow && cityList.length === 0 && <div className={s.text}>Add location using Settings</div>}
