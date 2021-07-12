@@ -41,7 +41,7 @@ export interface IWeather {
   timezone: number;
   id: number;
   name: string;
-  cod: number;
+  cod: number | string;
   message?: string;
 }
 
