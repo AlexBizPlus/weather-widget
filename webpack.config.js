@@ -57,7 +57,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new Dotenv({ ignoreStub: true })],
+  plugins: [new Dotenv({ ignoreStub: true, systemvars: true })],
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     open: true,
