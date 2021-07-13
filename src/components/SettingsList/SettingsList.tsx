@@ -25,7 +25,7 @@ const SettingsList = () => {
   }, [state]);
 
   return (
-    <ReactSortable tag="ul" className={s.list} list={state} setList={setState}>
+    <ReactSortable tag="ul" className={s.list} list={state} setList={setState} handle=".handle">
       {state.map((item) => (
         <li key={item.name}>
           <SettingsItem cityName={item.name} />
